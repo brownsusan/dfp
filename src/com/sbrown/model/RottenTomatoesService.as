@@ -24,15 +24,14 @@ package com.sbrown.model
 		{
 		}
 		
-		public function search(keyword:String, pageNum:uint = 1):void
+		public function search(keyword:String):void
 		{
 			_detailsComplete = 0;
 			
 			var urlLoaderSearch:URLLoader = new URLLoader();
-			urlLoaderSearch.addEventListener(Event.COMPLETE, onSearchComplete);
 			urlLoaderSearch.addEventListener(IOErrorEvent.IO_ERROR, onErrorSearch);
-			urlLoaderSearch.load(new URLRequest("http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=" + keyword + "&api_key=" + API_KEY));
-			
+			urlLoaderSearch.addEventListener(Event.COMPLETE, onSearchComplete);
+			urlLoaderSearch.load(new URLRequest("http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=" + keyword + "&apiKey=" + API_KEY));
 			
 			// THIS IS TEMP
 //			public var id:String;
@@ -51,36 +50,35 @@ package com.sbrown.model
 //			public var reviews:Array;
 //			public var posterUrl:String;
 			
-//			_movies = [];
+			/*var vo:MovieVO = new MovieVO();
+			_movies = [];
+
+			vo.id = "13153";
+			vo.title = "Finding Nemo";
+			vo.yearReleased = "1234";
+			vo.mpaaRating = "R";
+			vo.runTime = "123";
+			vo.criticRating = "Good";
+			vo.criticScore = "86";
+			vo.audienceRating = "Bad";
+			vo.audienceScore = "12";
+			vo.consensus = "This movie is a movie.";
+			vo.cast = ["person1", "person2", "person3", "person4", "person5"];
+			vo.posterUrl = "http://content6.flixster.com/movie/10/84/19/10841916_det.jpg";
+			vo.genres = ["Drama"];
+			vo.reviews = ["review1","review2","review3","review4"];
 			
-			var vo:MovieVO = new MovieVO();
-//			vo.id = "13153";
-//			vo.title = "Finding Nemo";
-//			vo.yearReleased = "1234";
-//			vo.mpaaRating = "R";
-//			vo.runTime = "123";
-//			vo.criticRating = "Good";
-//			vo.criticScore = "86";
-//			vo.audienceRating = "Bad";
-//			vo.audienceScore = "12";
-//			vo.consensus = "This movie is a movie.";
-//			vo.cast = ["person1", "person2", "person3", "person4", "person5"];
-//			vo.posterUrl = "http://content6.flixster.com/movie/10/84/19/10841916_det.jpg";
-//			vo.genres = ["Drama"];
-//			vo.reviews = ["review1","review2","review3","review4"];
-//			
-//			vo.genres = ["kids"];
-//			vo.synopsis = "This is a synopsis";
-//			vo.posterUrl = "http://content6.flixster.com/movie/10/84/19/10841916_det.jpg";
+			vo.synopsis = "This is a synopsis";
+			vo.posterUrl = "http://content6.flixster.com/movie/10/84/19/10841916_det.jpg";
 			
-//			_movies.push(vo);
+			_movies.push(vo);
 			
 			// simulated delay of loading
-//			var myTimer:Timer = new Timer(1000, 1); // 1 second
-//			myTimer.addEventListener(TimerEvent.TIMER, function(){
-//				dispatchEvent(new RottenTomatoesEvent(RottenTomatoesEvent.READ_COMPLETE));
-//			});
-//			myTimer.start();
+			var myTimer:Timer = new Timer(1000, 1); // 1 second
+			myTimer.addEventListener(TimerEvent.TIMER, function(){
+				dispatchEvent(new RottenTomatoesEvent(RottenTomatoesEvent.READ_COMPLETE));
+			});
+			myTimer.start();*/
 			
 		}
 		
@@ -114,7 +112,7 @@ package com.sbrown.model
 				var urlLoaderDetails:URLLoader = new URLLoader();
 				urlLoaderDetails.addEventListener(Event.COMPLETE, onLoadDetails);
 				urlLoaderDetails.addEventListener(IOErrorEvent.IO_ERROR, onErrorDetails);
-				urlLoaderDetails.load(new URLRequest("http:api.rottentomatoes.com/api/public/v1.0/movies/" + mov.id + ".json?apikey=gn3ce6n4358tm737jx9snn64"));
+				urlLoaderDetails.load(new URLRequest("http://api.rottentomatoes.com/api/public/v1.0/movies/" + mov.id + ".json?apikey=" + API_KEY));
 			}
 			
 			
@@ -138,12 +136,13 @@ package com.sbrown.model
 				}
 			}
 			
-			sendBackToMain()
+			sendBackToMain();
 			
 		}
 		 
 		private function onErrorSearch(event:IOErrorEvent):void
 		{
+			//There is an error happening here
 		}
 		
 		private function onErrorDetails(event:IOErrorEvent):void

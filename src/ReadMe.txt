@@ -1,2 +1,2 @@
 Link to live deployment: 
-brownsusan.github.com/dfp
+http://brownsusan.github.io/dfp/

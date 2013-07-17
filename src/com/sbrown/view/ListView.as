@@ -18,8 +18,6 @@ package com.sbrown.view
 		public var _listItem:ListItem
 		private var _movies:Array;
 		private var _layoutBox:LayoutBox;
-		public var _rightButton:rightButtonBase;
-		public var _leftButton:leftButtonBase;
 		private var _scrollHolder:Sprite;
 		private var _masker:Sprite;
 		
@@ -36,7 +34,7 @@ package com.sbrown.view
 		
 		protected function onAddedToStage(event:Event):void
 		{
-			_layoutBox.x = (stage.stageWidth * .25);
+//			_layoutBox.x = (stage.stageWidth * .25);
 		}		
 		
 		public function set movies(value:Array):void
@@ -60,14 +58,6 @@ package com.sbrown.view
 				_listItem.addEventListener(MouseEvent.CLICK, onClick);
 				_layoutBox.addChild(_listItem);
 			}
-			
-//			//ALL SCROLL PANE CODE
-//			scrollPane = new ScrollPane();
-//			addChild(scrollPane);
-//			scrollPane.y = 25;
-//			scrollPane.width = 1100;
-//			scrollPane.height = 500;
-//			scrollPane.source = _layoutBox;
 		}		
 		
 		private function onClick(event:MouseEvent):void
@@ -95,7 +85,7 @@ package com.sbrown.view
 			_scrollHolder.mask = _masker;
 			
 			// Adding the things to the holder
-				_scrollHolder.addChild(_layoutBox);
+			_scrollHolder.addChild(_layoutBox);
 			
 			// Creating and setting up our slider & manager
 			var track:Track = new Track();
@@ -116,7 +106,7 @@ package com.sbrown.view
 			var pct:Number = SliderManager(event.currentTarget).pct;
 			
 			// Math : percent * range of motion
-			_scrollHolder.x = pct * (_scrollHolder.width - _masker.width);
+			_scrollHolder.x = - pct * (_scrollHolder.width - _masker.width);
 			
 		}
 		

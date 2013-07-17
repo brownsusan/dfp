@@ -41,7 +41,6 @@ package
 			
 			_listView = new ListView();
 			_listView.y = 100;
-//			_listView.x = 50;
 			_listView.addEventListener(RottenTomatoesEvent.SHOW_DETAILS, onShowDetails);
 			
 			_detailView = new DetailView();
@@ -81,6 +80,7 @@ package
 		
 		private function onReadComplete(event:RottenTomatoesEvent):void
 		{
+			trace("read complete");
 			_searchView.loading = false;
 			_listView.movies = _rottenTomatoesService.movies;
 			addChild(_listView);

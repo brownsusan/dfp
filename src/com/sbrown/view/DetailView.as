@@ -57,19 +57,19 @@ package com.sbrown.view
 			//Description Panel
 			var accordianPanel1:AccordionPanel = new AccordionPanel();
 			_accordion.addPanel(accordianPanel1);
-			accordianPanel1.heading.tfHeader.text = "Synopsis";
+			accordianPanel1.heading.tfHeader.text = "Details";
 			accordianPanel1.panel.addChild(textFields.tfTitle);
 			accordianPanel1.panel.addChild(textFields.tfYear);
 			accordianPanel1.panel.addChild(textFields.tfGenre);
 			accordianPanel1.panel.addChild(textFields.tfRuntime);
 			accordianPanel1.panel.addChild(textFields.tfMpaaRating);
 			accordianPanel1.panel.addChild(textFields.tfSynopsis);
-			textFields.tfTitle.x = textFields.tfTitle.y = 50;
-			textFields.tfYear.y = 60;
-			textFields.tfGenre.y = 70;
-			textFields.tfRuntime.y = 80;
-			textFields.tfMpaaRating.y = 90;
-			textFields.tfSynopsis.y = 100;
+			textFields.tfTitle.x = textFields.tfTitle.y = 60;
+			textFields.tfYear.y = 80;
+			textFields.tfGenre.y = 100;
+			textFields.tfRuntime.y = 120;
+			textFields.tfMpaaRating.y = 140;
+			textFields.tfSynopsis.y = 160;
 			
 			//Cast
 			var accordianPanel2:AccordionPanel = new AccordionPanel();
@@ -87,18 +87,18 @@ package com.sbrown.view
 			accordianPanel3.panel.addChild(textFields.tfAudienceScore);
 			accordianPanel3.panel.addChild(textFields.tfAudiencceRating);
 			accordianPanel3.panel.addChild(textFields.tfConsensus);
-			textFields.tfCriticScore.y = 50;
-			textFields.tfCriticRating.y = 60;
-			textFields.tfAudienceScore.y = 70;
-			textFields.tfAudiencceRating.y = 80;
-			textFields.tfConsensus.y = 90;
+			textFields.tfCriticScore.y = 60;
+			textFields.tfCriticRating.y = 80;
+			textFields.tfAudienceScore.y = 100;
+			textFields.tfAudiencceRating.y = 120;
+			textFields.tfConsensus.y = 140;
 			
 			//Reviews
 			var accordianPanel4:AccordionPanel = new AccordionPanel();
 			_accordion.addPanel(accordianPanel4);
 			accordianPanel4.heading.tfHeader.text = "Reviews";
 			accordianPanel4.panel.addChild(textFields.tfReviews);
-			textFields.tfReviews.y = 50;
+			textFields.tfReviews.y = 60;
 			
 			var _url:String = _mVO.posterUrl;
 			var ld:Loader = new Loader();
@@ -112,7 +112,7 @@ package com.sbrown.view
 			image = new Bitmap(event.target.content.bitmapData);
 			image.width = this.bigBackDrop.width;
 			image.height = this.bigBackDrop.height;
-			var mh:Number = stage.stageHeight;
+			//var mh:Number = stage.stageHeight;
 			this.bigBackDrop.addChild(image);
 			
 		}

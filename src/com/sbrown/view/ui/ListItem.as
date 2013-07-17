@@ -48,22 +48,24 @@ package com.sbrown.view.ui
 			image.width = this.backdrop.width;
 			image.height = this.backdrop.height;
 			var mh:Number = stage.stageHeight;
-			this.backdrop.addChild(image);
+			this.addChild(image);
+			image.x = this.backdrop.x;
+			image.y = this.backdrop.y;
 			
 		}
 		
 		protected function onHover(event:MouseEvent):void
 		{
-			this.backdrop.addChild(_hover);
+			addChild(_hover);
 			_hover.tfTitle.text = _vo.title;
 			_hover.tfYear.text = _vo.yearReleased;
-			_hover.x = this.width * .5 - 70;
+			_hover.x = this.width * .5;
 			_hover.y = this.height * .5;
 		}
 		
 		protected function onOut(event:MouseEvent):void
 		{
-			this.backdrop.removeChild(_hover);
+			this.removeChild(_hover);
 			
 		}
 		
