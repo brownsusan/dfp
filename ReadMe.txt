@@ -1,2 +1,2 @@
 Link to live deployment: 
-http://brownsusan.github.io/dfp/
+http://brownsusan.github.io/dfp/Index.html
