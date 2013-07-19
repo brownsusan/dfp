@@ -6,33 +6,36 @@
 		<link rel="stylesheet" href="css/main.css"/>
 		<script type="text/javascript" src="swfobject.js"></script>
 		<script type="text/javascript">
-		swfobject.embedSWF("${swf}.swf", "movie","${width}", "${height}", "9")
+		swfobject.embedSWF("Main.swf", "movie","1108", "730", "9")
 		</script>
 		
 		<script type="text/javascript">
 		<!-- Change the dimensions of the SWF using the width and height variables below -->
-		var width = ${width};
-		var height = ${height};
+		var width = 1108;
+		var height = 730;
 		var flashvars = {};
 		var params = {};
 		params.wmode = "direct";
 		var attributes = {};
 		attributes.id = "flash_content";
-		swfobject.embedSWF("${swf}.swf", "altContent", width, height, "9.0.0", false, flashvars, params, attributes);
+		swfobject.embedSWF("Main.swf", "movie", width, height, "9.0.0", false, flashvars, params, attributes);
 		</script>
 	</head>
 	<body>
+	
 		<div id="wrapper">
 			<div id="movie">
+				<div id="altContent">
+					<a href= "http://get.adobe.com/flashplayer/" target="_blank" ><img class="altFlash" src="img/oops.png" alt="Flash alternate content"/></a>
+				</div> <!-- /altContent -->
 			</div>
 		</div>
+		
 		<div class="info">
 			<p>Susan Brown</p>
 			<p class="class">DFP | 1306</p>
 		</div>
-		<div id="altContent">
-		<a href= "http://get.adobe.com/flashplayer/" target="_blank" ><img class="altFlash" src="img/oops.png" alt="Flash alternate content"/></a>
-		</div> <!-- /altContent -->
+		
 	</body>
 	<footer>Flixster, Rotten Tomatoes, the Certified Fresh Logo are trademarks or registered trademarks of Flixster, Inc. in the United States and other countries.</footer>
 	</html>
